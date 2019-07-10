@@ -98,7 +98,7 @@
     ],
     "no-internal-module": true,
     "no-invalid-this": true,
-    "no-magic-numbers": false,
+    "no-magic-numbers": false, //TODO_LINT (we should lint for this)
     "no-namespace": true,
     "no-null-keyword": true,
     "no-reference": true,
@@ -183,21 +183,23 @@
       "check-separator",
       "check-type"
     ],
-
-
-
+    // ANGULAR Rules
     "directive-selector": [false, "attribute", "td", "camelCase"],
     "component-selector": [false, "element", "td", "kebab-case"],
     "component-class-suffix": true,
-    "directive-class-suffix": false,
-    "no-inputs-metadata-property": false,
-    "no-outputs-metadata-property": true,
-    "no-host-metadata-property": true,
-    "no-attribute-decorator": true,
-    "no-input-rename": false,
-    "no-output-rename": false,
+    "directive-class-suffix": false, // Checked in PR's (different suffix for validators and so)
+    "use-input-property-decorator": false, // Checked in PR's (mixins need a diff approach)
+    "use-output-property-decorator": true,
+    "use-host-property-decorator": true,
+    "no-attribute-parameter-decorator": true,
+    "no-input-rename": false, // so we can rename @Input so we can change API easier -> @Input('rename') name
+    "no-output-rename": false, // same but for @Output
     "no-forward-ref" : false,
-    "use-lifecycle-interface": true,
-    "use-pipe-transform-interface": true
+    "use-life-cycle-interface": true,
+    "use-pipe-transform-interface": true,
+    "pipe-naming": [
+      true,
+      "camelCase"
+    ]
   }
 }

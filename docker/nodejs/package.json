@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "Covalent running in Node.js on Docker",
   "license": "MIT",
-  "author": "Teradata UI Team",
+  "author": "Teradata UX",
+  "contributors": [
+    "Kyle Ledbetter <kyle.ledbetter@teradata.com>",
+    "Richa Vyas <richa.vyas@teradata.com>",
+    "Ed Morales <eduardo.morales@teradata.com>",
+    "Jason Weaver <jason.weaver@teradata.com>",
+    "Jeremy Smartt <jeremy.smartt@teradata.com>",
+    "Ilsun Park <ilsun.park@teradata.com>",
+    "Steven Ov <steven.ov@teradata.com>"
+  ],
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
