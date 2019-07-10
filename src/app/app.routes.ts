@@ -7,19 +7,19 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { MainComponent } from './main/main.component';
-import { LoginComponent } from './login/login.component';
+//import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { AuthenticationGuard } from '../config/guards/authentication.guard';
-import { LoginGuard } from '../config/guards/login/login.guard';
+//import { LoginGuard } from '../config/guards/login/login.guard';
 import { SystemsComponent } from './systems/systems.component';
 import { BrandComponent } from './brand/brand.component';
 import { ComponentsComponent } from './components/components.component';
 
 const routes: Routes = [
-    { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+    //{ path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
     {
-        path: '', component: MainComponent, canActivate: [AuthenticationGuard], children: [
+        path: '', component: MainComponent,  children: [
             { path: '', component: DashboardComponent },
             { path: 'systems', component: SystemsComponent },
             { path: 'brand', component: BrandComponent },
@@ -30,8 +30,8 @@ const routes: Routes = [
 ];
 
 export const appRoutingProviders: any[] = [
-    AuthenticationGuard,
-    LoginGuard,
+    //AuthenticationGuard,
+    //LoginGuard,
 ];
 
 export const appRoutes: any = RouterModule.forRoot(routes);
