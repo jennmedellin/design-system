@@ -58,6 +58,8 @@ import { CovalentChipsModule } from '@covalent/core/chips';
 import { CovalentHttpModule } from '@covalent/http';
 import { CovalentBaseEchartsModule } from '@covalent/echarts';
 
+import { DocumentationToolsModule } from './documentation-tools';
+
 import { AuthenticationInterceptor } from '../config/interceptors/authentication.interceptor';
 
 import { JWTDataService, ErrorService, SystemService, QueryService, AppsService, JWTDbCredentialsService } from '../services/';
@@ -144,13 +146,14 @@ const httpInterceptorProviders: Type<any>[] = [
     CovalentHighlightModule,
     CovalentBaseEchartsModule,
     CovalentChipsModule,
+    DocumentationToolsModule,
     TranslateModule.forRoot(),
     CovalentHttpModule.forRoot({
       interceptors: [{
         interceptor: AuthenticationInterceptor, paths: ['**'],
       }],
     }),
-  ], // modules needed to run this module
+  ], // modules needed to run this module\
   providers: [
     appRoutingProviders,
     JWTDataService,

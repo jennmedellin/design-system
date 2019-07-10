@@ -2,7 +2,7 @@
   "name": "app-template",
   "version": "1.0.0",
   "private": true,
-  "description": "Base app template with Covalent + Ecosystem Services",
+  "description": "Teradata Design System",
   "keywords": [
     "appcenter",
     "template"
@@ -61,6 +61,7 @@
     "@covalent/http": "2.0.0-beta.1",
     "@covalent/highlight": "2.0.0-beta.1",
     "@covalent/echarts": "git+https://github.com/Teradata/covalent-echarts-nightly/",
+    "@covalent/markdown": "^2.0.0-beta.2",
     "@ngx-translate/core": "10.0.1",
     "@ngx-translate/http-loader": "3.0.1",
     "core-js": "^2.4.1",
