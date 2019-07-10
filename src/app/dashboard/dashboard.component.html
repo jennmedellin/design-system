@@ -1,0 +1,162 @@
+<!--
+  Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
+  TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+-->
+<td-layout-nav logo="teradata" [toolbarTitle]="'APP_TITLE' | translate">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <span flex></span>
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button class="overflow-visible" mat-icon-button>
+      <td-notification-count color="accent" [notifications]="13">
+        <mat-icon>notifications</mat-icon>
+      </td-notification-count>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>help</mat-icon>
+    </button>
+  </div>
+  <div flex>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <div flex layout="row" layout-align="start center">
+          <mat-icon class="push-left-sm push-right">dashboard</mat-icon>
+          <span class="push-left-xs">{{'DASHBOARD' | translate}}</span>
+          <span flex></span>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+      <ng-template tdLoading="overview.dashboard">
+        <div layout-gt-xs="row" layout-wrap>
+          <div flex-gt-xs="100">
+            <mat-card>
+              <mat-card-title>Teradata Branding</mat-card-title>
+              <mat-card-subtitle>follow these usages of the new logo, font &amp; colors</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-card-content>
+                <div class="mat-display-1 push-bottom-none">Components of the logo</div>
+                <p>Modern, bold and conveying stability, the new Teradata logo consists of two components: a wordmark, followed by a period.
+                  The wordmark incorporates customized typographic elements implying connectivity and flow. The period is an essential component
+                  of the mark that speaks to the definitive and conclusive nature of the Teradata brand.</p>
+                <div class="mat-headline push-bottom-sm">Preferred usage</div>
+                <div layout="row" layout-wrap>
+                  <div flex-xs="50" flex-gt-xs="25" layout="row" layout-align="center center" class="pad text-center">
+                    <div>
+                      <div class="pad bgc-td-slate tc-white">
+                        <mat-icon svgIcon="teradata" style="height:auto;width:100%"></mat-icon>
+                        <div class="mat-subheading-1">Two color default</div>
+                      </div>
+                      <td-highlight lang="html" class="text-left">
+                        <![CDATA[
+                          <mat-icon svgIcon="teradata"></mat-icon>
+                        ]]>
+                      </td-highlight>
+                    </div>
+                  </div>
+                  <div flex-xs="50" flex-gt-xs="25" layout="row" layout-align="center center" class="pad text-center">
+                    <div>
+                      <div class="pad">
+                        <mat-icon svgIcon="teradata-dark" style="height:auto;width:100%"></mat-icon>
+                        <div class="mat-subheading-1">Two color dark</div>
+                      </div>
+                      <td-highlight lang="html" class="text-left">
+                        <![CDATA[
+                          <mat-icon svgIcon="teradata-dark"></mat-icon>
+                        ]]>
+                      </td-highlight>
+                    </div>
+                  </div>
+                  <div flex-xs="50" flex-gt-xs="25" layout="row" layout-align="center center" class="pad text-center">
+                    <div>
+                      <div class="pad bgc-td-orange tc-white">
+                        <mat-icon svgIcon="teradata-solid" style="color:white;height:auto;width:100%"></mat-icon>
+                        <div class="mat-subheading-1">One color white</div>
+                      </div>
+                      <td-highlight lang="html" class="text-left">
+                        <![CDATA[
+                          <mat-icon svgIcon="teradata-solid" [style.color]="'white'"></mat-icon>
+                        ]]>
+                      </td-highlight>
+                    </div>
+                  </div>
+                  <div flex-xs="50" flex-gt-xs="25" layout="row" layout-align="center center" class="pad text-center">
+                    <div>
+                      <div class="pad">
+                        <mat-icon svgIcon="teradata-solid" style="color:black;height:auto;width:100%"></mat-icon>
+                        <div class="mat-subheading-1">One color black</div>
+                      </div>
+                      <td-highlight lang="html" class="text-left">
+                        <![CDATA[
+                          <mat-icon svgIcon="teradata-solid" [style.color]="'black'"></mat-icon>
+                        ]]>
+                      </td-highlight>
+                    </div>
+                  </div>
+                </div>
+              </mat-card-content>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <button mat-button [routerLink]="[('/brand')]" color="accent" class="text-upper">{{'VIEW_MORE' | translate}}</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <div layout-gt-xs="row" layout-wrap>
+          <div flex-gt-xs="60">
+            <mat-card>
+              <mat-card-title>{{'SYSTEMS' | translate}}</mat-card-title>
+              <mat-card-subtitle>{{'SYSTEMS_DESC' | translate}}</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-list class="pad-left-xs pad-right-xs">
+                <ng-template let-system let-last="last" ngFor [ngForOf]="systems">
+                  <mat-list-item>
+                    <mat-icon matListIcon color="accent">dns</mat-icon>
+                    <h3 matLine>{{system.nickname}}</h3>
+                    <h4 matLine>{{system.host}}:{{system.port}}</h4>
+                    <p matLine>{{system.system_type}}</p>
+                  </mat-list-item>
+                  <mat-divider *ngIf="!last"></mat-divider>
+                </ng-template>
+              </mat-list>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <button mat-button [routerLink]="[('/systems')]" color="accent" class="text-upper">{{'VIEW_MORE' | translate}}</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+          <div flex-gt-xs="40">
+            <mat-card>
+              <mat-card-title>{{'RECENT_APPS' | translate}}</mat-card-title>
+              <mat-card-subtitle>{{'RECENT_APPS_DESC' | translate}}</mat-card-subtitle>
+              <mat-divider></mat-divider>
+              <mat-nav-list class="pad-left-xs pad-right-xs">
+                <ng-template let-app let-last="last" ngFor [ngForOf]="apps">
+                  <a mat-list-item [href]="routeToApp(app)" target="_blank">
+                    <mat-icon matListIcon>
+                      <span class="tc-{{app.color}}">{{app.icon}}</span>
+                    </mat-icon>
+                    <h3 matLine>{{app.name}}</h3>
+                    <h4 matLine>{{'TYPE' | translate}}: {{app.app_type}}</h4>
+                    <p matLine>
+                      {{'CPUS' | translate}}: {{app.cpus}} {{'MEMORY' | translate}}: {{app.memory}}
+                    </p>
+                  </a>
+                  <mat-divider *ngIf="!last"></mat-divider>
+                </ng-template>
+              </mat-nav-list>
+              <mat-divider></mat-divider>
+              <mat-card-actions>
+                <button mat-button color="accent" class="text-upper">{{'VIEW_MORE' | translate}}</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</td-layout-nav>

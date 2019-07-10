@@ -1,0 +1,134 @@
+<!--
+  Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
+  TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+-->
+<!-- <td-layout-nav logo="teradata" toolbarTitle="Design System" navigationRoute="/">
+  <button mat-icon-button td-menu-button tdLayoutToggle>
+    <mat-icon>menu</mat-icon>
+  </button>
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+    <span flex></span>
+    <button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+    <button class="overflow-visible" mat-icon-button>
+      <td-notification-count color="accent" [notifications]="13">
+        <mat-icon>notifications</mat-icon>
+      </td-notification-count>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>help</mat-icon>
+    </button>
+  </div>
+  <div flex>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <div flex layout="row" layout-align="start center">
+          <mat-icon class="push-left-sm push-right">palette</mat-icon>
+          <span class="push-left-xs">{{'TERADATA_BRAND' | translate}}</span>
+          <span flex></span>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  <div tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+    
+  </div>
+</div>
+</td-layout-nav> -->
+
+ <td-layout-nav logo="teradata" toolbarTitle="Design System" navigationRoute="/">
+    <div td-toolbar-content layout="row" layout-align="start center" flex>
+        <span flex></span>
+        <button mat-icon-button>
+          <mat-icon>search</mat-icon>
+        </button>
+        <button class="overflow-visible" mat-icon-button>
+          <td-notification-count color="accent" [notifications]="13">
+            <mat-icon>notifications</mat-icon>
+          </td-notification-count>
+        </button>
+        <button mat-icon-button>
+          <mat-icon>help</mat-icon>
+        </button>
+      </div>
+      <button mat-icon-button td-menu-button tdLayoutToggle>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <td-layout-manage-list opened="true" mode="side">
+        <mat-toolbar td-sidenav-content>Brand</mat-toolbar>
+        <div td-sidenav-content>
+          <div td-sidenav-content class="bgc-grey-200 pad-sm" flex>
+              <mat-nav-list>
+                <h3 matSubheader>User Experience</h3>
+              </mat-nav-list>
+              <mat-nav-list class="nav-list-steps">
+                <ng-template let-item let-last="last" let-index="index" ngFor [ngForOf]="uxRoutes">
+                  <a mat-list-item
+                      [routerLink]="[item.route]"
+                      [fragment]="item.anchor"
+                      class="border-radius"
+                      >
+                    <span matListAvatar
+                          class="push-right push-left-sm"
+                          layout="row"
+                          layout-align="center center">
+                      {{index + 1}}
+                    </span>
+                    <span class="text-md">{{item.title}}</span>
+                  </a>
+                </ng-template>
+              </mat-nav-list>
+              <mat-nav-list>
+                <h3 matSubheader>Developer Experience</h3>
+              </mat-nav-list>
+              <mat-nav-list class="nav-list-steps">
+                <ng-template let-item let-last="last" let-index="index" ngFor [ngForOf]="dxRoutes">
+                  <a mat-list-item
+                      [routerLink]="[item.route]"
+                      [fragment]="item.anchor"
+                      class="border-radius">
+                      
+                    <span matListAvatar
+                          class="push-right push-left-sm"
+                          layout="row"
+                          layout-align="center center">
+                      {{index + 1}}
+                    </span>
+                    <span class="text-md">{{item.title}}</span>
+                  </a>
+                </ng-template>
+              </mat-nav-list>
+          </div>
+        </div>
+        <mat-toolbar>
+          <button mat-button tdLayoutManageListToggle>
+            Toggle
+          </button>
+          Brand Overview
+        </mat-toolbar>
+        <div layout-gt-sm="row">
+          <div flex>
+            <div class="bgc-td-slate-900 pad-xl">
+              <div layout="row" layout-align="start center">
+                <mat-icon svgIcon="assets:covalent-mark" style="width:128px;height:128px;" class="push-right"></mat-icon>
+                <div>
+                  <h1 class="mat-display-1 tc-blue-grey-50 push-bottom-none">Covalent Criteria</h1>
+                  <h2 class="mat-headline tc-blue-grey-200 push-bottom-none">Design standards for Teradata products</h2>
+                </div>
+              </div>
+            </div>
+            <div #childContainer></div>
+            <div tdMediaToggle="gt-xs" [mediaClasses]="['push']">
+              <h3 class="mat-display-1 push-bottom push-top push-left-sm">User Experience</h3>
+              <ng-template let-item let-last="last" ngFor [ngForOf]="uxRoutes">
+                <td-readme-loader #readmeLoader id="{{item.anchor}}" resourceUrl="assets/markdown/{{item.anchor}}.md"></td-readme-loader>
+              </ng-template>
+              <h3 class="mat-display-1 push-bottom push-top push-left-sm">Developer Experience</h3>
+              <ng-template let-item let-last="last" ngFor [ngForOf]="dxRoutes">
+                <td-readme-loader #readmeLoader id="{{item.anchor}}" resourceUrl="assets/markdown/{{item.anchor}}.md"></td-readme-loader>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </td-layout-manage-list>
+    </td-layout-nav>

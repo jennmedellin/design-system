@@ -5,10 +5,10 @@ const request = require('request');
 
 // Constants
 // port that will be running inside the docker
-// use this number when deploying app
+// use this number when creating the appcenter app
 const PORT = 8080;
 const HOST = '0.0.0.0';
-// Base Url env variable set by Vantage backend
+// Base Url env variable set by appcenter backend
 const redirectServer = process.env.APPCENTER_BASE_URL;
 
 // App
@@ -17,7 +17,7 @@ const app = express();
 // proxy to the webservice requests
 app.all('/api/*', function(req,res) {
    // the url to the service endpoints
-   // for self signed certificates used in vantage develop using the rejectUnauthorized: false
+   // for self signed certificates used in appcenter develop using the rejectUnauthorized: false
    // probably shouldn't do this in production
    var url = redirectServer + req.url;
    req.pipe(request({url,

@@ -1,3 +1,6 @@
+# Copyright (C) 2016-2017 by Teradata Corporation. All rights reserved.
+# TERADATA CORPORATION CONFIDENTIAL AND TRADE SECRET
+
 FROM nginx:1.9
 COPY * /usr/share/nginx/html/
 COPY assets/ /usr/share/nginx/html/assets/
