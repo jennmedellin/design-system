@@ -42,7 +42,7 @@ export class AuthenticationInterceptor implements IHttpInterceptor {
       this._jwtDataService.redirect = this._router.url;
       this._router.navigateByUrl('/login');
       this._jwtDataService.clear();
-      throw { message: this._translate.instant('SESSION_EXPIRED') };
+      //throw { message: this._translate.instant('SESSION_EXPIRED') };
     }
     return requestOptions;
   }
@@ -58,7 +58,7 @@ export class AuthenticationInterceptor implements IHttpInterceptor {
       this._router.navigateByUrl('/login');
       this._jwtDataService.clear();
       return new Response(new ResponseOptions({
-        body: '{"message": "' + this._translate.instant('SESSION_EXPIRED') + '"}',
+        //body: '{"message": "' + this._translate.instant('SESSION_EXPIRED') + '"}',
       }));
     } else if (error.status === FORBIDDEN) {
       if (json && json.error !== STOP_JOB_BEFORE_DELETE) {
